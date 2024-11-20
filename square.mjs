@@ -7,7 +7,7 @@ const dataFilePath = join(dirname, 'math-result.json')
 
 async function readData() {
   try {
-    const result = await fs.stat(dataFilePath)
+    const result = await fs.readFile(dataFilePath)
     return JSON.parse(result)
   } catch (e) {
     console.error(e)
