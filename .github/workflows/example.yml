@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v4
+      # - name: Download math result for job 1
+      #   uses: actions/download-artifact@v4
 
       - name: Square the value
         if: always()
