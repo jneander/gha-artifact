@@ -23,6 +23,7 @@ jobs:
         run: node square.mjs
 
       - name: Persist math result
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: math_result
