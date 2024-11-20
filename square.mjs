@@ -19,7 +19,7 @@ async function writeData(data) {
 }
 
 async function run() {
-  const entries = await fs.entries(dirname)
+  const entries = await fs.readdir(dirname)
   for (const entry of entries) {
     console.log(`local file: ${entry}`)
   }
