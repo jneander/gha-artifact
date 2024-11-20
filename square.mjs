@@ -26,6 +26,7 @@ async function run() {
     console.log(`local file: ${entry}`)
   }
   const data = await readData()
+  console.log('current data is', data)
   data.value = data.value ** 2
   await writeData(data)
 }
