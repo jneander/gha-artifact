@@ -19,13 +19,9 @@ async function writeData(data) {
 }
 
 async function run() {
-  try {
-    const data = await readData()
-    data.value = data.value ** 2
-    await writeData(data)
-  } catch (e) {
-    console.error(e)
-  }
+  const data = await readData()
+  data.value = data.value ** 2
+  await writeData(data)
 }
 
 void run()
