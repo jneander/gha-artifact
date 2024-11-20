@@ -19,6 +19,10 @@ async function writeData(data) {
 }
 
 async function run() {
+  const entries = await fs.entries(dirname)
+  for (const entry of entries) {
+    console.log(`local file: ${entry}`)
+  }
   const data = await readData()
   data.value = data.value ** 2
   await writeData(data)
