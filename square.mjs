@@ -9,7 +9,9 @@ async function readData() {
   try {
     const result = await fs.stat(dataFilePath)
     return JSON.parse(result)
-  } catch {
+  } catch (e) {
+    console.error(e)
+    console.log('using default value')
     return {value: 2}
   }
 }
