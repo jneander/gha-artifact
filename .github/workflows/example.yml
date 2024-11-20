@@ -1,51 +1,27 @@
-name: Share data between jobs
+name: Continuous math
 
 on: [push]
 
 jobs:
-  job_1:
-    name: Add 3 and 7
+  square:
+    name: Do math
     runs-on: ubuntu-latest
-    steps:
-      - shell: bash
-        run: |
-          expr 3 + 7 > math-homework.txt
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v4
-        with:
-          name: homework_pre
-          path: math-homework.txt
 
-  job_2:
-    name: Multiply by 9
-    needs: job_1
-    runs-on: windows-latest
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
       - name: Download math result for job 1
         uses: actions/download-artifact@v4
         with:
-          name: homework_pre
-      - shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          expr $value \* 9 > math-homework.txt
-      - name: Upload math result for job 2
+          name: math_result
+
+      - name: Square the value
+        run: node square.mjs
+
+      - name: Persist math result
         uses: actions/upload-artifact@v4
         with:
-          name: homework_final
-          path: math-homework.txt
-
-  job_3:
-    name: Display results
-    needs: job_2
-    runs-on: macOS-latest
-    steps:
-      - name: Download math result for job 2
-        uses: actions/download-artifact@v4
-        with:
-          name: homework_final
-      - name: Print the final result
-        shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
+          name: math_result
+          path: math-result.json
