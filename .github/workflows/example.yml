@@ -3,13 +3,9 @@ name: Continuous math
 on: [push]
 
 jobs:
-  before:
-    uses: ./.github/workflows/cache-read.yml
-
   square:
     name: Do math
     runs-on: ubuntu-latest
-    needs: [before]
 
     steps:
       - uses: actions/checkout@v3
