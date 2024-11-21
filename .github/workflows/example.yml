@@ -3,15 +3,18 @@ name: Continuous math
 on: [push]
 
 jobs:
+  before:
+    uses: ./.github/workflows/cache-read.yml
+
   square:
     name: Do math
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/cache-read.yml
 
       - name: Square the value
         run: node square.mjs
 
-      - uses: ./.github/workflows/cache-write.yml
+  after:
+    uses: ./.github/workflows/cache-write.yml
