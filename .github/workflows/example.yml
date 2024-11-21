@@ -14,9 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Restore cache
+        uses: ./.github/workflows/cache-read.yml
+
       - name: Square the value
         run: node square.mjs
 
-  after:
-    uses: ./.github/workflows/cache-write.yml
-    needs: [square]
+      - name: Save cache
+        uses: ./.github/workflows/cache-write.yml
