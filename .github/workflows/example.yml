@@ -14,17 +14,12 @@ jobs:
           node-version: 22
 
       - name: Restore cache
-        id: restore-cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
-          key: math_result
+          key: math-result-${{ github.run_id }}
           path: math-result.json
+          restore-keys: |
+            math-result-
 
       - name: Square the value
         run: node square.mjs
-
-      - name: Save cache
-        uses: actions/cache/save@v4
-        with:
-          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
-          path: math-result.json
