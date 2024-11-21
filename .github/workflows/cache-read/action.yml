@@ -1,6 +1,9 @@
 name: Read cache
+description: Read the cache data, when present.
 
 runs:
+  using: 'composite'
+
   steps:
     - name: Read cache
       uses: actions/cache/restore@v4

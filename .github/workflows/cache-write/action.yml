@@ -1,6 +1,9 @@
 name: Cache write
+description: Write the local data to the cache.
 
 runs:
+  using: 'composite'
+
   steps:
     - name: List files
       run: ls .
