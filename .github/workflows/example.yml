@@ -9,9 +9,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/cache-read.yml@main
+      - uses: ./cache-read.yml@main
 
       - name: Square the value
         run: node square.mjs
 
-      - uses: ./.github/workflows/cache-write.yml@main
+      - uses: ./cache-write.yml@main
