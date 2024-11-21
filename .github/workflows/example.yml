@@ -8,24 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        with:
-          key: math-result-${{ github.run_id }}-${{ github.run_attempt }}
-          path: math-result.json
-          restore-keys: |
-            math-result-
+      - uses: ./cache-read.yml@main
 
       - name: Square the value
         run: node square.mjs
 
-      - name: Save cache
-        uses: actions/cache/save@v4
-        with:
-          key: math-result-${{ github.run_id }}-${{ github.run_attempt }}
-          path: math-result.json
+      - uses: ./cache-write.yml@main

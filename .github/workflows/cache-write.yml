@@ -1,0 +1,15 @@
+name: Square
+
+on:
+  workflow_call:
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Write cache
+        uses: actions/cache/save@v4
+        with:
+          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
+          path: example-data.json

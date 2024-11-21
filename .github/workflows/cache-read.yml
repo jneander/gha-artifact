@@ -1,0 +1,22 @@
+name: Read cache
+
+on:
+  workflow_call:
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Read cache
+        uses: actions/cache/restore@v4
+        with:
+          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
+          path: example-data.json
+          restore-keys: |
+            cache-
