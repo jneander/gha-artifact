@@ -8,7 +8,7 @@ runs:
     - name: Read cache
       uses: actions/cache/restore@v4
       with:
-        key: cache-${{ job }}-${{ github.run_id }}-${{ github.run_attempt }}
+        key: cache-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
         path: example-data.json
         restore-keys: |
           cache-
