@@ -16,7 +16,7 @@ jobs:
       - name: Restore cache
         uses: actions/cache/restore@v4
         with:
-          key: math-result-${{ github.run_id }}
+          key: math-result-${{ github.run_id }}-${{ github.run_attempt }}
           path: math-result.json
           restore-keys: |
             math-result-
@@ -27,5 +27,5 @@ jobs:
       - name: Save cache
         uses: actions/cache/save@v4
         with:
-          key: math-result-${{ github.run_id }}
+          key: math-result-${{ github.run_id }}-${{ github.run_attempt }}
           path: math-result.json
