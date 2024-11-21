@@ -14,6 +14,7 @@ jobs:
           node-version: 22
 
       - name: Restore cache
+        id: restore-cache
         uses: actions/cache/restore@v4
         with:
           key: math_result
@@ -25,5 +26,5 @@ jobs:
       - name: Save cache
         uses: actions/cache/save@v4
         with:
-          key: math_result
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
           path: math-result.json
