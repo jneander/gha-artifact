@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: List files
+        run: ls
+
       - name: Write cache
         uses: actions/cache/save@v4
         with:
