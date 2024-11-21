@@ -16,5 +16,6 @@ export async function readData() {
 }
 
 export async function writeData(data) {
+  console.debug('saving data', data)
   await fs.writeFile(dataFilePath, JSON.stringify(data))
 }
