@@ -1,8 +1,6 @@
 name: Cache write
 
 runs:
-  runs-on: ubuntu-latest
-
   steps:
     - name: List files
       run: ls .
