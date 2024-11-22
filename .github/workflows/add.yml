@@ -1,0 +1,25 @@
+name: Add
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  square:
+    name: Add
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore cache
+        uses: ./.github/workflows/cache-read
+
+      - name: Add the value
+        run: node add.mjs
+
+      - name: Save cache
+        uses: ./.github/workflows/cache-write

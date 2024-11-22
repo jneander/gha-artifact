@@ -1,10 +1,12 @@
-name: Continuous math
+name: Square
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
 
 jobs:
   square:
-    name: Do math
+    name: Square
     runs-on: ubuntu-latest
 
     steps:

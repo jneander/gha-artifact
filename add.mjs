@@ -1,16 +1,10 @@
 import {readData, writeData} from './shared.mjs'
 
-const FILENAME = 'square-data'
+const FILENAME = 'add-data'
 
 async function run() {
   const data = (await readData(FILENAME)) ?? {}
-
-  if (data.square == null || data.square > 1000000) {
-    data.square = 2
-  } else {
-    data.square = data.square ** 2
-  }
-
+  data.add = (data.add || 0) + 1
   await writeData(FILENAME, data)
 }
 

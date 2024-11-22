@@ -13,4 +13,4 @@ runs:
       uses: actions/cache/save@v4
       with:
         key: cache-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
-        path: example-data.json
+        path: ./*.json
