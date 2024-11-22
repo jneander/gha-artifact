@@ -11,4 +11,4 @@ runs:
         key: cache-${{ github.workflow }}-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
         path: ./*.json
         restore-keys: |
-          cache-
+          cache-${{ github.workflow }}-${{ github.job }}-
