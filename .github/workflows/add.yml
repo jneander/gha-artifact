@@ -1,11 +1,11 @@
-name: Add
+name: Add Numbers
 
 on:
   workflow_dispatch:
   push:
 
 jobs:
-  square:
+  add:
     name: Add
     runs-on: ubuntu-latest
 

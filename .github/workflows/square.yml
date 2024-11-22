@@ -1,4 +1,4 @@
-name: Square
+name: Square Numbers
 
 on:
   workflow_dispatch:
