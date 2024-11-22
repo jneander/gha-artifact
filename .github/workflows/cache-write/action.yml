@@ -12,5 +12,5 @@ runs:
     - name: Write cache
       uses: actions/cache/save@v4
       with:
-        key: cache-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
+        key: cache-${{ github.workflow }}-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
         path: ./*.json
