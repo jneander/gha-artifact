@@ -11,6 +11,8 @@ async function run() {
     data.square = data.square ** 2
   }
 
+  console.debug(data)
+
   await writeData(FILENAME, data)
 }
 
